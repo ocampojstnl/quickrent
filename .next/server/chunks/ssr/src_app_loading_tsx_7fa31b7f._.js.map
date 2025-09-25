@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///C:/Users/Dev/Desktop/NEXT%20PROJECTS/rental9/rental6/rental/rental-app/src/app/loading.tsx"],"sourcesContent":["export default function Loading() {\n\n  // Stack uses React Suspense, which will render this page while user data is being fetched.\n  // See: https://nextjs.org/docs/app/api-reference/file-conventions/loading\n  return <></>;\n}\n"],"names":[],"mappings":";;;;;;AAAe,SAAS;IAEtB,2FAA2F;IAC3F,0EAA0E;IAC1E,qBAAO;AACT","debugId":null}}]
+}

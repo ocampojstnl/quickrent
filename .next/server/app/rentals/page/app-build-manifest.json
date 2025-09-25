@@ -1,0 +1,22 @@
+{
+  "pages": {
+    "/rentals/page": [
+      "static/chunks/7d246e9ce5f03900.js",
+      "static/chunks/0e01da165e82043f.js",
+      "static/chunks/6f93d01f084b196c.js",
+      "static/chunks/7483ab4a188b6281.js",
+      "static/chunks/ae05b2625f228cfd.js",
+      "static/chunks/a9b881b7d0e34076.js",
+      "static/chunks/1fb4d78081ef722c.css",
+      "static/chunks/ca5b0cd2f64fd708.js",
+      "static/chunks/5d067d98b6e3469d.js",
+      "static/chunks/e4e1fb8dfff845ad.js",
+      "static/chunks/e1bcd3a77102413c.js",
+      "static/chunks/4a4074717300b14a.js",
+      "static/chunks/9d897df650a2dd2b.js",
+      "static/chunks/da855f025088b307.js",
+      "static/chunks/2c3cf8f9a65397b0.js",
+      "static/chunks/turbopack-edb643fd1d18806d.js"
+    ]
+  }
+}

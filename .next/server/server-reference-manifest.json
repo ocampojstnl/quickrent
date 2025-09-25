@@ -1,0 +1,51 @@
+{
+  "node": {
+    "008f1f58a907ed0db136bed4be4500b7c5a8745537": {
+      "workers": {
+        "app/page": {
+          "moduleId": "[project]/.next-internal/server/app/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/app/landlord/register/userStatus.action.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/actions/user.action.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "getUserStatus",
+          "filename": "src/app/landlord/register/userStatus.action.ts"
+        }
+      },
+      "layer": {
+        "app/page": "rsc"
+      },
+      "filename": "src/app/landlord/register/userStatus.action.ts",
+      "exportedName": "getUserStatus"
+    },
+    "006a288c873c3e0682d86dc76d8a33529af483a9e0": {
+      "workers": {
+        "app/page": {
+          "moduleId": "[project]/.next-internal/server/app/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/app/landlord/register/userStatus.action.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/actions/user.action.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "getUserId",
+          "filename": "actions/user.action.ts"
+        }
+      },
+      "layer": {
+        "app/page": "rsc"
+      },
+      "filename": "actions/user.action.ts",
+      "exportedName": "getUserId"
+    },
+    "402df4efb498b8bf57b298d0f858e85bdb1006478a": {
+      "workers": {
+        "app/page": {
+          "moduleId": "[project]/.next-internal/server/app/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/app/landlord/register/userStatus.action.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/actions/user.action.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "getUserDetails",
+          "filename": "actions/user.action.ts"
+        }
+      },
+      "layer": {
+        "app/page": "rsc"
+      },
+      "filename": "actions/user.action.ts",
+      "exportedName": "getUserDetails"
+    }
+  },
+  "edge": {},
+  "encryptionKey": "X1eggXa7cMBJs6wQbuNc+lfrvK9uRkne55YCVKwS8A8="
+}

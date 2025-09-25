@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 3, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"","debugId":null}},
+    {"offset": {"line": 19, "column": 0}, "map": {"version":3,"sources":["file:///C:/Users/Dev/Desktop/NEXT%20PROJECTS/rental9/rental6/rental/rental-app/src/app/handler/%5B...stack%5D/page.tsx"],"sourcesContent":["import { StackHandler } from \"@stackframe/stack\"; \nimport { stackServerApp } from \"../../../stack/server\"; \n\nexport default function Handler(props: unknown) { \n   return <StackHandler fullPage app = { stackServerApp } routeProps = { props } />; \n } \n"],"names":[],"mappings":";;;;;AAAA;AACA;;;;AAEe,SAAS,QAAQ,KAAc;IAC3C,qBAAO,8OAAC,yPAAY;QAAC,QAAQ;QAAC,KAAQ,yIAAc;QAAG,YAAe;;;;;;AACxE","debugId":null}}]
+}

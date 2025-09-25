@@ -1,0 +1,20 @@
+{
+  "node": {
+    "0014bad5b383822225567a151d9ccdecc460db62db": {
+      "workers": {
+        "app/landlord/register/page": {
+          "moduleId": "90293",
+          "async": false,
+          "exportedName": "registerLandlord",
+          "filename": "src/app/landlord/register/registerLandlord.action.ts"
+        }
+      },
+      "layer": {
+        "app/landlord/register/page": "action-browser"
+      },
+      "exportedName": "registerLandlord",
+      "filename": "src/app/landlord/register/registerLandlord.action.ts"
+    }
+  },
+  "edge": {}
+}

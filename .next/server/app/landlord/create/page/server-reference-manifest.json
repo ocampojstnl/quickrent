@@ -1,0 +1,20 @@
+{
+  "node": {
+    "40a178308ef4551bfb80bfcbf5a200bb8fb36810cd": {
+      "workers": {
+        "app/landlord/create/page": {
+          "moduleId": "43903",
+          "async": false,
+          "exportedName": "createRental",
+          "filename": "src/app/rentals/rental.actions.ts"
+        }
+      },
+      "layer": {
+        "app/landlord/create/page": "action-browser"
+      },
+      "exportedName": "createRental",
+      "filename": "src/app/rentals/rental.actions.ts"
+    }
+  },
+  "edge": {}
+}

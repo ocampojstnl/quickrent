@@ -1,0 +1,110 @@
+{
+  "node": {
+    "00d8024baac3831f727dfc090c800fc14c1638d436": {
+      "workers": {
+        "app/rentals/[id]/edit/page": {
+          "moduleId": "87518",
+          "async": false,
+          "exportedName": "getRentals",
+          "filename": "src/app/rentals/rental.actions.ts"
+        }
+      },
+      "layer": {
+        "app/rentals/[id]/edit/page": "rsc"
+      },
+      "exportedName": "getRentals",
+      "filename": "src/app/rentals/rental.actions.ts"
+    },
+    "40086476bbb0e7e3ad928a1379722703ab4ba535e0": {
+      "workers": {
+        "app/rentals/[id]/edit/page": {
+          "moduleId": "87518",
+          "async": false,
+          "exportedName": "getRental",
+          "filename": "src/app/rentals/rental.actions.ts"
+        }
+      },
+      "layer": {
+        "app/rentals/[id]/edit/page": "rsc"
+      },
+      "exportedName": "getRental",
+      "filename": "src/app/rentals/rental.actions.ts"
+    },
+    "4043efccccee9580cab0921a22ce01691e53223ec6": {
+      "workers": {
+        "app/rentals/[id]/edit/page": {
+          "moduleId": "87518",
+          "async": false,
+          "exportedName": "deleteRental",
+          "filename": "src/app/rentals/rental.actions.ts"
+        }
+      },
+      "layer": {
+        "app/rentals/[id]/edit/page": "rsc"
+      },
+      "exportedName": "deleteRental",
+      "filename": "src/app/rentals/rental.actions.ts"
+    },
+    "40a178308ef4551bfb80bfcbf5a200bb8fb36810cd": {
+      "workers": {
+        "app/rentals/[id]/edit/page": {
+          "moduleId": "87518",
+          "async": false,
+          "exportedName": "createRental",
+          "filename": "src/app/rentals/rental.actions.ts"
+        }
+      },
+      "layer": {
+        "app/rentals/[id]/edit/page": "rsc"
+      },
+      "exportedName": "createRental",
+      "filename": "src/app/rentals/rental.actions.ts"
+    },
+    "60c671dedfc34ae22c60fc0a73f5552482002d00f0": {
+      "workers": {
+        "app/rentals/[id]/edit/page": {
+          "moduleId": "87518",
+          "async": false,
+          "exportedName": "updateRental",
+          "filename": "src/app/rentals/rental.actions.ts"
+        }
+      },
+      "layer": {
+        "app/rentals/[id]/edit/page": "rsc"
+      },
+      "exportedName": "updateRental",
+      "filename": "src/app/rentals/rental.actions.ts"
+    },
+    "006a288c873c3e0682d86dc76d8a33529af483a9e0": {
+      "workers": {
+        "app/rentals/[id]/edit/page": {
+          "moduleId": "87518",
+          "async": false,
+          "exportedName": "getUserId",
+          "filename": "actions/user.action.ts"
+        }
+      },
+      "layer": {
+        "app/rentals/[id]/edit/page": "rsc"
+      },
+      "exportedName": "getUserId",
+      "filename": "actions/user.action.ts"
+    },
+    "402df4efb498b8bf57b298d0f858e85bdb1006478a": {
+      "workers": {
+        "app/rentals/[id]/edit/page": {
+          "moduleId": "87518",
+          "async": false,
+          "exportedName": "getUserDetails",
+          "filename": "actions/user.action.ts"
+        }
+      },
+      "layer": {
+        "app/rentals/[id]/edit/page": "rsc"
+      },
+      "exportedName": "getUserDetails",
+      "filename": "actions/user.action.ts"
+    }
+  },
+  "edge": {}
+}
