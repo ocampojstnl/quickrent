@@ -1,4 +1,5 @@
 import { createRental } from "../rental.actions";
+import CategoryCombobox from "@/components/CategoryCombobox";
 
 export default function CreateRentalPage() {
   return (
@@ -42,13 +43,10 @@ export default function CreateRentalPage() {
                   <label htmlFor="category" className="block text-sm font-medium text-gray-700">
                     Property Type *
                   </label>
-                  <input
-                    id="category"
+                  <CategoryCombobox
                     name="category"
-                    type="text"
-                    placeholder="e.g., Apartment, House, Condo"
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 placeholder-gray-400"
+                    className="w-full h-10"
                   />
                 </div>
               </div>

@@ -2,6 +2,8 @@ import { Message } from "@prisma/client";
 import { cn } from "@/lib/utils";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Download, FileText, Image as ImageIcon } from "lucide-react";
+import { useState } from "react";
+import ImageModal from "./ImageModal";
 
 interface ChatMessageProps {
   message: Message & {
@@ -20,6 +22,7 @@ export default function ChatMessage({
   senderName = "User",
   senderAvatar
 }: ChatMessageProps) {
+  const [isImageModalOpen, setIsImageModalOpen] = useState(false);
   // Hide marker messages (read markers and delete markers)
   if (message.content === "🔵 CHAT_READ_MARKER" || message.content === "🗑️ CHAT_DELETED_MARKER") {
     return null;
@@ -72,25 +75,21 @@ export default function ChatMessage({
           {message.fileUrl && (
             <div className="mt-2">
               {isImage ? (
-                <div className="relative">
+                <div className="relative group">
                   <img
                     src={message.fileUrl}
-                    alt={message.fileName || "Uploaded image"}
-                    className="max-w-full h-auto rounded-md cursor-pointer hover:opacity-90"
-                    onClick={() => window.open(message.fileUrl!, '_blank')}
+                    alt="Uploaded image"
+                    className="max-w-full h-auto rounded-md cursor-pointer hover:opacity-90 transition-opacity"
+                    onClick={() => setIsImageModalOpen(true)}
+                    style={{ maxHeight: '200px', objectFit: 'cover' }}
                   />
-                  <div className="flex items-center justify-between mt-1">
-                    <span className="text-xs opacity-75">{message.fileName}</span>
-                    <Download
-                      className="w-3 h-3 cursor-pointer opacity-75 hover:opacity-100"
-                      onClick={() => {
-                        const link = document.createElement('a');
-                        link.href = message.fileUrl!;
-                        link.download = message.fileName || 'download';
-                        link.click();
-                      }}
-                    />
-                  </div>
+                  
+                  <ImageModal
+                    isOpen={isImageModalOpen}
+                    onClose={() => setIsImageModalOpen(false)}
+                    imageUrl={message.fileUrl}
+                    fileName={message.fileName || undefined}
+                  />
                 </div>
               ) : (
                 <div

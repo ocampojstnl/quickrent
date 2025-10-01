@@ -1,5 +1,6 @@
 import { createRental } from "@/app/rentals/rental.actions";
 import { getUserStatus } from "@/app/landlord/register/userStatus.action";
+import CategoryCombobox from "./CategoryCombobox";
 
 export default function CreateRentalForm() {
   return (
@@ -42,13 +43,10 @@ export default function CreateRentalForm() {
                   <label htmlFor="category" className="block text-sm font-medium text-gray-700">
                     Property Type *
                   </label>
-                  <input
-                    id="category"
+                  <CategoryCombobox
                     name="category"
-                    type="text"
-                    placeholder="e.g., Apartment, House, Condo"
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 placeholder-gray-400"
+                    className="w-full"
                   />
                 </div>
               </div>

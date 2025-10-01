@@ -17,7 +17,7 @@ import { notFound } from "next/navigation";
 export default async function EditRentalPage({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
   // Check user authentication and landlord status
   const userStatus = await getUserStatus();
@@ -27,7 +27,8 @@ export default async function EditRentalPage({
     notFound();
   }
 
-  const rental = await getRental(params.id);
+  const { id } = await params;
+  const rental = await getRental(id);
 
   if (!rental) return <div>Not found</div>;
 

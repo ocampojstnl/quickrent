@@ -7,6 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Send, Paperclip, X, Image as ImageIcon, FileText, Trash2, MoreVertical } from "lucide-react";
 import ChatMessage from "./ChatMessage";
+import ChatUserProfile from "./ChatUserProfile";
 import { sendMessage, markChatAsRead, deleteChatForUser } from "@/app/chat/chat.actions";
 import { useRouter } from "next/navigation";
 import {
@@ -63,31 +64,35 @@ export default function ChatInterface({ chat, currentUserId }: ChatInterfaceProp
     markAsRead();
   }, [chat.id]);
 
-  // Real-time polling for new messages - disabled for now
-  // TODO: Implement proper real-time updates with WebSockets or Server-Sent Events
-  // useEffect(() => {
-  //   const pollMessages = async () => {
-  //     try {
-  //       const response = await fetch(`/api/chat/${chat.id}/messages`);
-  //       if (response.ok) {
-  //         const data = await response.json();
-  //         if (data.messages && data.messages.length !== messages.length) {
-  //           setMessages(data.messages);
-  //         }
-  //       }
-  //     } catch (error) {
-  //       console.error("Error polling messages:", error);
-  //     }
-  //   };
+  // Real-time polling for new messages
+  useEffect(() => {
+    const pollMessages = async () => {
+      try {
+        const response = await fetch(`/api/chat/${chat.id}/messages`);
+        if (response.ok) {
+          const data = await response.json();
+          if (data.messages && data.messages.length !== messages.length) {
+            setMessages(data.messages);
+          }
+        }
+      } catch (error) {
+        console.error("Error polling messages:", error);
+      }
+    };
 
-  //   const interval = setInterval(pollMessages, 3000); // Poll every 3 seconds
-  //   return () => clearInterval(interval);
-  // }, [chat.id, messages.length]);
+    const interval = setInterval(pollMessages, 2000); // Poll every 2 seconds
+    return () => clearInterval(interval);
+  }, [chat.id, messages.length]);
 
   // Load user names from Stack Auth
   useEffect(() => {
     const loadUserNames = async () => {
-      const uniqueUserIds = [...new Set(messages.map(m => m.senderId))];
+      // Include both chat participants, not just message senders
+      const uniqueUserIds = [...new Set([
+        ...messages.map(m => m.senderId),
+        chat.landlordId,
+        chat.tenantId
+      ])];
       const names: Record<string, string> = {};
       
       for (const userId of uniqueUserIds) {
@@ -121,9 +126,7 @@ export default function ChatInterface({ chat, currentUserId }: ChatInterfaceProp
       setUserNames(names);
     };
 
-    if (messages.length > 0) {
-      loadUserNames();
-    }
+    loadUserNames(); // Always load, even if no messages yet
   }, [messages, chat.landlordId, chat.tenantId]);
 
   const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -150,18 +153,35 @@ export default function ChatInterface({ chat, currentUserId }: ChatInterfaceProp
       let fileUrl, fileName, fileType;
       
       if (selectedFile) {
-        // In a real implementation, you'd upload the file to a storage service
-        // For now, we'll create a mock URL
-        fileUrl = `/uploads/chat/${Date.now()}-${selectedFile.name}`;
-        fileName = selectedFile.name;
-        fileType = selectedFile.type;
+        // Upload the file to the server
+        const formData = new FormData();
+        formData.append('file', selectedFile);
+        
+        const uploadResponse = await fetch('/api/upload', {
+          method: 'POST',
+          body: formData,
+        });
+        
+        if (uploadResponse.ok) {
+          const uploadResult = await uploadResponse.json();
+          if (uploadResult.success) {
+            fileUrl = uploadResult.fileUrl;
+            fileName = selectedFile.name;
+            fileType = selectedFile.type;
+          } else {
+            throw new Error(uploadResult.error || 'Failed to upload file');
+          }
+        } else {
+          throw new Error('Failed to upload file');
+        }
+        
         setSelectedFile(null);
       }
 
       const result = await sendMessage(
         chat.id,
         currentUserId,
-        messageContent || "📎 File attachment",
+        messageContent || "",
         fileUrl,
         fileName,
         fileType
@@ -204,30 +224,38 @@ export default function ChatInterface({ chat, currentUserId }: ChatInterfaceProp
   };
 
   const isLandlord = currentUserId === chat.landlordId;
-  const otherPartyName = isLandlord ? "Tenant" : "Landlord";
+  const otherUserId = isLandlord ? chat.tenantId : chat.landlordId;
+  const otherPartyName = userNames[otherUserId] || (isLandlord ? "Tenant" : "Landlord");
 
   return (
     <Card className="h-[85vh] flex flex-col">
       <CardHeader className="pb-3 border-b">
         <div className="flex items-center justify-between">
-          <div>
-            <CardTitle className="text-lg">
+          <div className="flex-1">
+            <CardTitle className="text-lg mb-2">
               {chat.rental.name}
             </CardTitle>
-            <div className="flex items-center gap-2 mt-1">
+            <div className="flex items-center gap-2 mb-3">
               <Badge variant="secondary" className="text-xs">
                 {chat.rental.category}
               </Badge>
-              <span className="text-sm text-muted-foreground">
-                Chatting with {otherPartyName}
+              <span className="text-xs text-muted-foreground">
+                ₱ {chat.rental.price.toLocaleString()} • {chat.rental.address}
               </span>
             </div>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="text-right">
-              <p className="text-sm font-medium">₱ {chat.rental.price.toLocaleString()}</p>
-              <p className="text-xs text-muted-foreground">{chat.rental.address}</p>
+            
+            {/* User Profile Section */}
+            <div className="border-t pt-3">
+              <ChatUserProfile
+                userId={otherUserId}
+                isLandlord={!isLandlord}
+                userName={otherPartyName}
+                className="mb-0"
+              />
             </div>
+          </div>
+          
+          <div className="flex items-center gap-2 ml-4">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost" size="icon" disabled={isDeleting}>

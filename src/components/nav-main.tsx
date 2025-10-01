@@ -41,14 +41,6 @@ export function NavMain({
       <SidebarGroupLabel>Platform</SidebarGroupLabel>
       <SidebarMenu>
         <SidebarMenuItem className="cursor-pointer">
-            <Link href="/landlord">
-                <SidebarMenuButton tooltip="Create a new unit">
-                    <HousePlus color="#000000" strokeWidth={1.5} />
-                    <span>Dashboard</span>
-                </SidebarMenuButton>
-            </Link>
-        </SidebarMenuItem>
-        <SidebarMenuItem className="cursor-pointer">
             <Link href="/landlord/create">
                 <SidebarMenuButton tooltip="Create a new unit">
                     <HousePlus color="#000000" strokeWidth={1.5} />

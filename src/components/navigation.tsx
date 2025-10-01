@@ -26,51 +26,51 @@ import { UserButton } from "@stackframe/stack";
 
 const components: { title: string; href: string; description: string, icon: React.ElementType, imageLink: string }[] = [
   {
-    title: "Condominiums",
+    title: "Studio Unit",
     href: "/docs/primitives/alert-dialog",
     description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley",
-    icon : Warehouse, 
+      "Usually 18–30 sqm, single open space with no separate bedroom.",
+    icon : HouseIcon, 
     imageLink : "https://placehold.co/400",
   },
   {
-    title: "Houses",
+    title: "1-Bedroom Unit",
     href: "/docs/primitives/hover-card",
     description:
-      "For sighted users to preview content available behind a link.",
+      "Has one enclosed bedroom, often 30–50 sqm.",
     icon : HouseIcon, 
     imageLink : "https://placehold.co/400",
 
   },
   {
-    title: "Commercial Buildings",
+    title: "2-Bedroom Unit",
     href: "/docs/primitives/progress",
     description:
-      "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here.",
-    icon : HousePlug, 
+      "Larger, typically 40–80 sqm.",
+    icon : HouseIcon, 
     imageLink : "https://placehold.co/400",
   },
   {
-    title: "Offices",
+    title: "3-Bedroom Unit",
     href: "/docs/primitives/scroll-area",
-    description: "Visually or semantically separates content.",
-    icon : PrinterCheck, 
+    description: "For families, often 70 sqm and above.",
+    icon : HouseIcon, 
     imageLink : "https://placehold.co/400",
   },
   {
-    title: "Apartments",
+    title: "Loft Unit",
     href: "/docs/primitives/tabs",
     description:
-      "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old",
-    icon : Hotel, 
+      "Has a high ceiling and a mezzanine/second level inside the unit.",
+    icon : HouseIcon, 
     imageLink : "https://placehold.co/400",
   },
   {
-    title: "Stores",
+    title: "Penthouse",
     href: "/docs/primitives/tooltip",
     description:
-      "There are many variations of passages of Lorem Ipsum available, but the majority have suffered",
-    icon : StoreIcon, 
+      "The topmost unit in the building, usually luxury size with best views.",
+    icon : HouseIcon, 
     imageLink : "https://placehold.co/400",
   },
 ]
@@ -104,46 +104,46 @@ export default function Navigation() {
 
   return (
     <header className="py-4 shadow sticky top-0 z-50 backdrop-blur-sm transition-colors bg-fd-background/80">
-        <div className="max-w-(--breakpoint-xl) mx-auto flex items-center justify-between">
+        <div className="max-w-(--breakpoint-xl) mx-auto flex items-center">
             <SiteLogo/>
-            <NavigationMenu viewport={false}>
+            <NavigationMenu className= "mr-auto ml-5" viewport={false}>
                 <NavigationMenuList>
                     <NavigationMenuItem>
                         <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
                             <Link href="/rentals">Rentals</Link>
                         </NavigationMenuLink>
                       </NavigationMenuItem>
-                    <NavigationMenuItem>
+                    {/* <NavigationMenuItem>
                       <NavigationMenuTrigger>Home</NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                        <ul className="grid gap-2 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-                        <li className="row-span-3">
-                            <NavigationMenuLink asChild>
-                            <a
-                                className="from-muted/50 to-muted flex h-full w-full flex-col justify-end rounded-md bg-linear-to-b p-6 no-underline outline-hidden select-none focus:shadow-md"
-                                href="/"
-                            >
-                                <div className="mt-4 mb-2 text-lg font-medium">
-                                shadcn/ui
-                                </div>
-                                <p className="text-muted-foreground text-sm leading-tight">
-                                Beautifully designed components built with Tailwind CSS.
-                                </p>
-                            </a>
-                            </NavigationMenuLink>
-                        </li>
-                        <ListItem href="/docs" title="Introduction">
-                            Re-usable components built using Radix UI and Tailwind CSS.
-                        </ListItem>
-                        <ListItem href="/docs/installation" title="Installation">
-                            How to install dependencies and structure your app.
-                        </ListItem>
-                        <ListItem href="/docs/primitives/typography" title="Typography">
-                            Styles for headings, paragraphs, lists...etc
-                        </ListItem>
-                        </ul>
-                    </NavigationMenuContent>
-                    </NavigationMenuItem>
+                      <NavigationMenuContent>
+                          <ul className="grid gap-2 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+                          <li className="row-span-3">
+                              <NavigationMenuLink asChild>
+                              <a
+                                  className="from-muted/50 to-muted flex h-full w-full flex-col justify-end rounded-md bg-linear-to-b p-6 no-underline outline-hidden select-none focus:shadow-md"
+                                  href="/"
+                              >
+                                  <div className="mt-4 mb-2 text-lg font-medium">
+                                  shadcn/ui
+                                  </div>
+                                  <p className="text-muted-foreground text-sm leading-tight">
+                                  Beautifully designed components built with Tailwind CSS.
+                                  </p>
+                              </a>
+                              </NavigationMenuLink>
+                          </li>
+                          <ListItem href="/docs" title="Introduction">
+                              Re-usable components built using Radix UI and Tailwind CSS.
+                          </ListItem>
+                          <ListItem href="/docs/installation" title="Installation">
+                              How to install dependencies and structure your app.
+                          </ListItem>
+                          <ListItem href="/docs/primitives/typography" title="Typography">
+                              Styles for headings, paragraphs, lists...etc
+                          </ListItem>
+                          </ul>
+                      </NavigationMenuContent>
+                    </NavigationMenuItem> */}
                     <NavigationMenuItem>
                     <NavigationMenuTrigger>Categories</NavigationMenuTrigger>
                       <NavigationMenuContent>
@@ -170,7 +170,7 @@ export default function Navigation() {
                           </ul>
                       </NavigationMenuContent>
                     </NavigationMenuItem>
-                    <NavigationMenuItem>
+                    {/* <NavigationMenuItem>
                     <NavigationMenuTrigger>List</NavigationMenuTrigger>
                     <NavigationMenuContent>
                         <ul className="grid w-[300px] gap-4">
@@ -202,59 +202,59 @@ export default function Navigation() {
                         </li>
                         </ul>
                     </NavigationMenuContent>
-                    </NavigationMenuItem>
-                    <NavigationMenuItem>
-                    <NavigationMenuTrigger>Simple</NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                        <ul className="grid w-[200px] gap-4">
-                        <li>
-                            <NavigationMenuLink asChild>
-                            <Link href="#">Components</Link>
-                            </NavigationMenuLink>
-                            <NavigationMenuLink asChild>
-                            <Link href="#">Documentation</Link>
-                            </NavigationMenuLink>
-                            <NavigationMenuLink asChild>
-                            <Link href="#">Blocks</Link>
-                            </NavigationMenuLink>
-                        </li>
-                        </ul>
-                    </NavigationMenuContent>
-                    </NavigationMenuItem>
-                    <NavigationMenuItem>
-                    <NavigationMenuTrigger>With Icon</NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                        <ul className="grid w-[200px] gap-4">
-                        <li>
-                            <NavigationMenuLink asChild>
-                            <Link href="#" className="flex-row items-center gap-2">
-                                <CircleHelpIcon />
-                                Backlog
-                            </Link>
-                            </NavigationMenuLink>
-                            <NavigationMenuLink asChild>
-                            <Link href="#" className="flex-row items-center gap-2">
-                                <CircleIcon />
-                                To Do
-                            </Link>
-                            </NavigationMenuLink>
-                            <NavigationMenuLink asChild>
-                            <Link href="#" className="flex-row items-center gap-2">
-                                <CircleCheckIcon />
-                                Done
-                            </Link>
-                            </NavigationMenuLink>
-                        </li>
-                        </ul>
-                    </NavigationMenuContent>
-                    </NavigationMenuItem>
+                    </NavigationMenuItem> */}
+                    {/* <NavigationMenuItem>
+                      <NavigationMenuTrigger>Simple</NavigationMenuTrigger>
+                      <NavigationMenuContent>
+                          <ul className="grid w-[200px] gap-4">
+                          <li>
+                              <NavigationMenuLink asChild>
+                              <Link href="#">Components</Link>
+                              </NavigationMenuLink>
+                              <NavigationMenuLink asChild>
+                              <Link href="#">Documentation</Link>
+                              </NavigationMenuLink>
+                              <NavigationMenuLink asChild>
+                              <Link href="#">Blocks</Link>
+                              </NavigationMenuLink>
+                          </li>
+                          </ul>
+                      </NavigationMenuContent>
+                    </NavigationMenuItem> */}
+                    {/* <NavigationMenuItem>
+                      <NavigationMenuTrigger>With Icon</NavigationMenuTrigger>
+                      <NavigationMenuContent>
+                          <ul className="grid w-[200px] gap-4">
+                          <li>
+                              <NavigationMenuLink asChild>
+                              <Link href="#" className="flex-row items-center gap-2">
+                                  <CircleHelpIcon />
+                                  Backlog
+                              </Link>
+                              </NavigationMenuLink>
+                              <NavigationMenuLink asChild>
+                              <Link href="#" className="flex-row items-center gap-2">
+                                  <CircleIcon />
+                                  To Do
+                              </Link>
+                              </NavigationMenuLink>
+                              <NavigationMenuLink asChild>
+                              <Link href="#" className="flex-row items-center gap-2">
+                                  <CircleCheckIcon />
+                                  Done
+                              </Link>
+                              </NavigationMenuLink>
+                          </li>
+                          </ul>
+                      </NavigationMenuContent>
+                    </NavigationMenuItem> */}
                 </NavigationMenuList>
             </NavigationMenu>
 {user ? (
               <>
                 {/*Sign out Button*/}
                 <>
-                  <div className="signed-in-user flex items-center">
+                  <div className="signed-in-user ml-auto flex items-center">
                     {status !== "LANDLORD" && (
                       <Button className="mr-4">
                         <Link href="/landlord/register">
@@ -265,8 +265,8 @@ export default function Navigation() {
 
                   <div className="flex items-center gap-2 mr-4">
                     <Button>
-                      <Link href="/landlord">
-                        Dashboard
+                      <Link href="/landlord/listings">
+                        Listings
                       </Link>
                     </Button>
                     {user && (
@@ -292,7 +292,7 @@ export default function Navigation() {
                 {/*Sign Button*/}
                 <Button
                   variant="ghost"
-                  className="flex items-center gap-2"
+                  className="flex ml-auto items-center gap-2"
                   asChild
                 >
                   <Link href="/handler/sign-in">

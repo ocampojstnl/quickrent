@@ -21,14 +21,15 @@ import Link from "next/link";
 import Image from "next/image";
 
 interface RentalPageProps {
-  params: {
+  params: Promise<{
     id: string;
     slug: string;
-  };
+  }>;
 }
 
 export default async function RentalPage({ params }: RentalPageProps) {
-  const rental = await getRental(params.id);
+  const { id } = await params;
+  const rental = await getRental(id);
 
   if (!rental) {
     notFound();
@@ -237,7 +238,8 @@ export default async function RentalPage({ params }: RentalPageProps) {
 
 // Generate metadata for SEO
 export async function generateMetadata({ params }: RentalPageProps) {
-  const rental = await getRental(params.id);
+  const { id } = await params;
+  const rental = await getRental(id);
 
   if (!rental) {
     return {
